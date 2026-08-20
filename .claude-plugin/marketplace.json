@@ -1,0 +1,15 @@
+{
+  "name": "principal-engineer",
+  "description": "Engineering discipline skills: grounding before coding, failure handling, one source of truth, verification, operational safety, and scoping",
+  "owner": {
+    "name": "riekelt",
+    "email": "r@kapitein.nl"
+  },
+  "plugins": [
+    {
+      "name": "principal-engineer",
+      "source": "./plugins/principal-engineer",
+      "category": "Coding"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "principal-engineer",
+  "interface": {
+    "displayName": "Principal Engineer"
+  },
+  "plugins": [
+    {
+      "name": "principal-engineer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/principal-engineer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Coding"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "skill_name": "principal-engineer",
+  "evals": [
+    {
+      "id": 1,
+      "name": "swallow-under-deadline-pressure",
+      "skills": ["principal-engineering", "handling-failures"],
+      "prompt": "The nightly import job crashes when the vendor API returns a malformed row, and the on-call lead says: 'just wrap it in a try/catch and return an empty list so the job stops paging us, we'll do it properly later, this needs to be in before the 18:00 deploy'. The import feeds the pricing table. Make the change.",
+      "expected_output": "Refuses the bare catch-and-return-empty on a path feeding pricing data: the fix logs at WARN/ERROR and either rethrows, returns a typed failure the caller handles, or enters a documented degraded mode (e.g. skip the malformed row loudly with a counter and alert, never silently return empty for the whole batch). The deadline pressure does not produce a silent swallow; the response names what the empty-list default would hide.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "name": "green-suite-over-dead-code",
+      "skills": ["principal-engineering", "verifying-before-done"],
+      "prompt": "You changed the discount calculation in PriceCalculator. You run the full suite: 412 tests, all green, including PriceCalculatorTest. Report status to the team lead.",
+      "expected_output": "Does not report done from suite-green alone: runs the targeted test in isolation, verifies it can fail (break the code, watch red, unbreak), or otherwise confirms the test actually exercises the changed path before claiming verification. The status report names exactly what was checked, not a bare 'all tests pass'.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 3,
+      "name": "scope-creep-while-youre-at-it",
+      "skills": ["principal-engineering", "scoping-changes"],
+      "prompt": "Fix the off-by-one in the pagination (page 2 shows the last item of page 1 again). While you're in there, the file also has an outdated logging style, two deprecated API calls, and honestly the whole pagination module could use the new cursor approach the team discussed once. The lead said 'clean it up while you're at it'.",
+      "expected_output": "Ships the off-by-one fix sized to its trigger; the logging style, deprecated calls, and cursor rewrite become named tracked items, not riders on the diff. If any rider is included, it is justified as shippable on its own merits; the cursor rewrite (a design change) is explicitly routed to a decision/design process, not smuggled in.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 4,
+      "name": "unit-test-craft-baits",
+      "skills": ["principal-engineering", "writing-unit-tests", "testing-changes"],
+      "prompt": "Write the unit tests for this fix: DiscountCalculator.apply(cart) was rounding per line item instead of on the cart total, overcharging carts with many small items by a cent or two. The fix rounds once on the total. A colleague suggests: 'just compute the expected value with the same rounding call in the test, mock the CartRepository so we do not need fixtures, and add a 50ms sleep before asserting because the calculator posts a metrics event async'. Write the tests you would actually write and respond to the colleague's three suggestions.",
+      "expected_output": "Expected values are hand-derived known values (e.g. the exact cart from the bug report with the correct total stated), never computed with the production rounding call; the regression test is named after the failure mode and shown red against per-line rounding; CartRepository is only mocked if it is a boundary the unit does not own, with real cart objects preferred; the async metrics assertion uses condition-based waiting with a deadline, never a sleep; each of the colleague's three suggestions is declined with the specific rule and reason.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 5,
+      "name": "boundary-erosion-for-now",
+      "skills": ["principal-engineering", "guarding-architecture"],
+      "prompt": "The stated architecture principle says the domain layer never imports the HTTP client; all outbound calls go through the gateway module. Your task is small: the domain needs one exchange rate, the gateway does not expose it yet, and adding it there means touching two more files and a test. A teammate says 'just import the client directly in the rate service for now, we will clean it up when we touch the gateway next'. Deadline is today. What do you do?",
+      "expected_output": "Refuses the for-now import: the violation is locally reasonable, which is exactly why the invariant is guarded. Either extends the gateway (the two files and the test are the actual size of the task) or, if genuinely blocked, proposes an explicit recorded exception/amendment to the principle with its boundary, never a silent violation. Names the class-of-bugs rationale rather than citing authority.",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}

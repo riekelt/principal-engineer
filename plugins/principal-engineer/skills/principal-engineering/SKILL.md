@@ -1,0 +1,71 @@
+---
+name: principal-engineering
+description: Use when doing any non-trivial engineering work - implementing, debugging, refactoring, configuring, operating, or investigating why a system misbehaves - or any change where being wrong has a cost. Encodes the evidence-over-theory discipline, the hard safety rules, and the pre-change checkpoint. Use whenever code, data, or infrastructure is about to change or must be understood before it can, even if the task looks routine or is only "find out why". Foundation for the sibling skills.
+---
+
+# Senior engineering
+
+## Overview
+
+The difference at this level is not knowing more patterns; it is refusing to act on what the system supposedly does when you can check what it actually does. Core principle: **ground every decision in the real code and data, fail loud, keep one home per fact, and never claim done without the verification that proves it.**
+
+Sibling skills carry the depth: `grounding-before-coding`, `handling-failures`, `keeping-one-source-of-truth`, `verifying-before-done`, `operating-safely`, `scoping-changes`, `testing-changes`, `writing-unit-tests`, `guarding-architecture`. Load the matching one on top of this.
+
+## When to invoke
+
+| The task is | Also load |
+|---|---|
+| Starting a change, a debug, or work in unfamiliar code | `grounding-before-coding` |
+| Writing or touching any error path, fallback, or default | `handling-failures` |
+| Adding data, config, state, or a second copy of anything | `keeping-one-source-of-truth` |
+| About to say "done", "fixed", or "passing" | `verifying-before-done` |
+| Deleting, overwriting, restarting, or touching secrets or live systems | `operating-safely` |
+| Deciding how big a fix should be, or scope is moving mid-task | `scoping-changes` |
+| Deciding what tests a change owes, or the test diff is empty | `testing-changes` |
+| Writing or fixing a unit test, or a test is flaky or unreadable | `writing-unit-tests` |
+| Crossing module boundaries, adding dependencies, or touching stated principles | `guarding-architecture` |
+
+Writing the documents around the work (specs, decisions, changelogs, runbooks, postmortems, issues) is the technical-writer plugin's job where installed; these skills govern the engineering itself and defer to those for the prose.
+
+## What this skill does not do
+
+- It is not a style guide: formatting, naming taste, and framework choice belong to the repository's own conventions, which win.
+- It does not replace project instructions: CLAUDE.md and repository rules outrank everything here.
+- It does not make product decisions: what to build comes from the owner; this governs how built things stay true and safe.
+
+## Mandatory checkpoint before a non-trivial change
+
+Before writing the first line, state in working notes:
+
+`Grounded: <what you read or ran to know the current behavior> | Blast radius: <what this change touches> | Invariants: <what must not break> | Verify: <the command that will prove it worked>`
+
+Fill it from the code and data, not from memory or plausibility. A field you cannot fill is the work you do first.
+
+## Hard rules
+
+Non-negotiable, in every repository:
+
+- **No silent error swallows.** Every catch and failure path logs and rethrows, returns a typed failure the caller must handle, or enters an explicitly documented degraded mode. A new silent swallow is an automatic review BLOCKER. See `handling-failures`.
+- **An applied migration is immutable history.** Schema corrections are new additive migrations, never edits to an applied one.
+- **Never claim verified without naming what was checked.** "Done" states the command and its result; tests that fail are reported with output; skipped steps are named. See `verifying-before-done`.
+- **Secret values are never read, printed, or decrypted to disk.** Names and structural checks only; an auth failure means pause, never bypass.
+- **Destructive operations need eyes first.** Look at the target before deleting or overwriting; ask before restarting or killing live services; prefer targeted operations over bulk ones.
+- **Evidence beats theory.** Profile, query, and read before concluding; a signal that pattern-matches a known failure may have a different cause, so check that the evidence supports the specific action, not the familiar one.
+
+## Risk tiers set the rigor
+
+Not all changes deserve the same ceremony; the tier does not change the rules, it changes how much proof they demand. **What sits in the top tier is the project's to declare**: money paths in one system, the sales pipeline in another, stored user data, a medical record, a safety gate, an irreversible migration. The project's rules or CLAUDE.md name its critical paths; when they do not, ask what the system must never get wrong, and treat the answer as the declaration.
+
+Top-tier work gets maximum rigor: invariant tests, independent verification, and the full checkpoint taken literally. Ordinary paths get the standard discipline. Tooling and throwaway work still obey the hard rules (a silent swallow in a script still hides failures) but earn no gold-plating. State the tier when it is not obvious; the expensive mistake is running critical-path work at tooling rigor, and the wasteful one is the reverse.
+
+## The rule lifecycle
+
+When something bites twice, it becomes a written rule with its provenance (what happened, when, how to avoid it); once is learning. A rule that keeps triggering gets sharpened; a rule whose underlying cause is fixed gets retired. Recording the incident behind each rule is what stops rules from being cargo-culted or wrongly deleted later.
+
+## Common mistakes
+
+- Acting on a document's claim about the system instead of the system. Doc status goes stale fast; the code and the history are the record.
+- Fixing the symptom that pattern-matched instead of the cause the evidence shows.
+- Treating "the tests are green" as "the change works". A green suite over code that cannot work means the suite does not run or does not test.
+- Leaving a duplicate you noticed because removing it was not the task. Absorbing it was part of the task. See `keeping-one-source-of-truth`.
+- Growing a fix past its trigger because improvements were adjacent. See `scoping-changes`.

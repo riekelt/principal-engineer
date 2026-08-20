@@ -1,0 +1,21 @@
+{
+  "measured": "2026-08-20",
+  "method": "Each query was routed by a haiku agent given the full 29-entry roster (19 skills across the technical-writer, principal-engineer, and multi-agent-review plugins, plus 10 real distractor skills) and asked which single skill it would consult first. Proxy measurement of description quality, not of live-session triggering. Routing agents must run with worktree isolation and router-not-executor framing: task-shaped query text has been executed by an agent once (the pe08 rename query, performed for real in an unisolated run).",
+  "targets": {
+    "principal-engineering": { "pass": 12, "total": 12, "note": "First run scored 10/12: the two pure-investigation queries (pe05, pe07) routed to none because both descriptions framed triggers as changes. After adding investigation triggers to principal-engineering and grounding-before-coding, both route to grounding-before-coding at 3 of 3 runs. Core-or-specialist counts as a pass by design." }
+  },
+  "queries": [
+    { "id": "pe01", "should": true, "accept": ["principal-engineering", "grounding-before-coding"], "q": "I need to add rate limiting to the public API, where do I start" },
+    { "id": "pe02", "should": true, "accept": ["principal-engineering", "grounding-before-coding", "handling-failures"], "q": "the cron job double-processed a batch last night, need to make sure that can't happen again" },
+    { "id": "pe03", "should": true, "accept": ["principal-engineering", "grounding-before-coding", "scoping-changes"], "q": "refactor the payment retry logic, it's spread over three services and nobody dares touch it" },
+    { "id": "pe04", "should": true, "accept": ["principal-engineering", "operating-safely", "grounding-before-coding"], "q": "migrate our session storage from redis to postgres without downtime" },
+    { "id": "pe05", "should": true, "accept": ["principal-engineering", "grounding-before-coding"], "q": "klant zegt dat de export soms leeg is, moet dat echt even goed uitzoeken" },
+    { "id": "pe06", "should": true, "accept": ["principal-engineering", "grounding-before-coding", "guarding-architecture"], "q": "add a feature flag system to the backend" },
+    { "id": "pe07", "should": true, "accept": ["principal-engineering", "grounding-before-coding"], "q": "we're seeing intermittent 502s since yesterday's deploy, dig in" },
+    { "id": "pe08", "should": false, "q": "rename this variable from tmp to userCount" },
+    { "id": "pe09", "should": false, "q": "what does the yield keyword do in python" },
+    { "id": "pe10", "should": false, "q": "write the release notes for v2.3" },
+    { "id": "pe11", "should": false, "q": "make the login button blue instead of green" },
+    { "id": "pe12", "should": false, "q": "brainstorm some features for our q4 roadmap" }
+  ]
+}

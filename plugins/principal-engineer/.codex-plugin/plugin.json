@@ -1,0 +1,46 @@
+{
+  "name": "principal-engineer",
+  "version": "1.0.0",
+  "description": "Engineering discipline as skills: evidence over theory, no silent error swallows, one source of truth, verification as the definition of done, operational safety, and fixes sized to their trigger",
+  "author": {
+    "name": "riekelt",
+    "email": "r@kapitein.nl",
+    "url": "https://github.com/riekelt"
+  },
+  "homepage": "https://github.com/riekelt/principal-engineer",
+  "repository": "https://github.com/riekelt/principal-engineer",
+  "license": "MIT",
+  "keywords": [
+    "engineering-discipline",
+    "error-handling",
+    "verification",
+    "source-of-truth",
+    "operational-safety",
+    "scope-control",
+    "grounding",
+    "code-quality"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Principal Engineer",
+    "shortDescription": "The discipline layer for coding agents: ground before coding, fail loud, verify before done, and never let a fix outgrow its trigger.",
+    "longDescription": "Seven skills encoding the engineering judgment that survives incidents: grounding-before-coding (map the real code and data, never guess conventions), handling-failures (the no-silent-swallows contract), keeping-one-source-of-truth (derive rather than store, absorb duplicates), verifying-before-done (run the proof, distrust green suites, own failing gates), operating-safely (destructive-op guards, secrets hygiene, concurrent-session safety), and scoping-changes (size to trigger, decompose instead of descoping). A core skill routes and carries the hard rules.",
+    "developerName": "riekelt",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read"
+    ],
+    "defaultPrompt": [
+      "Review this error handling against the no-silent-swallows contract.",
+      "Ground this change before we write any code."
+    ],
+    "websiteURL": "https://github.com/riekelt/principal-engineer",
+    "privacyPolicyURL": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+    "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+    "brandColor": "#B45309",
+    "composerIcon": "",
+    "logo": "",
+    "screenshots": []
+  }
+}
