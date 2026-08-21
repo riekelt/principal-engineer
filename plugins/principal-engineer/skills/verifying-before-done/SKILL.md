@@ -1,6 +1,6 @@
 ---
 name: verifying-before-done
-description: Use when about to say "done", "fixed", "passing", or "shipped" - or when reporting the outcome of any change. Encodes verification as the definition of done: run the proof, report faithfully, distrust green suites, own failing gates. Use before every completion claim, even when the change was small and obviously correct, which is when this is skipped.
+description: "Use when about to say \"done\", \"fixed\", \"passing\", or \"shipped\" - or when reporting the outcome of any change. Encodes verification as the definition of done: run the proof, report faithfully, distrust green suites, own failing gates. Use before every completion claim, even when the change was small and obviously correct, which is when this is skipped."
 ---
 
 # Verifying before done

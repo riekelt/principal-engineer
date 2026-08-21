@@ -1,6 +1,6 @@
 ---
 name: keeping-one-source-of-truth
-description: Use when adding data, config, state, constants, an enum-like string, a cache, or anything that could exist in two places - or when two sources already disagree. Encodes the one-fact-one-home doctrine for code and data: derive rather than store, extend the owner, absorb duplicates. Use at the moment copying a value feels faster than referencing it.
+description: "Use when adding data, config, state, constants, an enum-like string, a cache, or anything that could exist in two places - or when two sources already disagree. Encodes the one-fact-one-home doctrine for code and data: derive rather than store, extend the owner, absorb duplicates. Use at the moment copying a value feels faster than referencing it."
 ---
 
 # Keeping one source of truth

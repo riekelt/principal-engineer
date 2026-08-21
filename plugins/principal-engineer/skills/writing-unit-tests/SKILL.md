@@ -1,6 +1,6 @@
 ---
 name: writing-unit-tests
-description: Use when writing or refactoring unit tests - a new test file, added cases, a flaky test, an unreadable one. Encodes behavior-first testing: one behavior per test, names that document, deterministic setup, mocks only at boundaries you do not own. Use whenever a test is being written, even a quick one, and whenever a test needs a sleep, a mock of your own code, or a copy of the implementation's math.
+description: "Use when writing or refactoring unit tests - a new test file, added cases, a flaky test, an unreadable one. Encodes behavior-first testing: one behavior per test, names that document, deterministic setup, mocks only at boundaries you do not own. Use whenever a test is being written, even a quick one, and whenever a test needs a sleep, a mock of your own code, or a copy of the implementation's math."
 ---
 
 # Writing unit tests

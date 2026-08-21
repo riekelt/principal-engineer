@@ -1,6 +1,6 @@
 ---
 name: grounding-before-coding
-description: Use when starting any non-trivial change, investigating a bug, or working in unfamiliar code - before the first line is written. Also use for pure investigation with no change planned yet - "dig into this", "figure out why", "sometimes the export is empty", intermittent errors after a deploy. Encodes the ground-first discipline: map the real code and data, quote evidence, never guess conventions. Use whenever a change or a conclusion is about to be built from belief instead of from the tree, even under time pressure.
+description: "Use when starting any non-trivial change, investigating a bug, or working in unfamiliar code - before the first line is written. Also use for pure investigation with no change planned yet - \"dig into this\", \"figure out why\", \"sometimes the export is empty\", intermittent errors after a deploy. Encodes the ground-first discipline: map the real code and data, quote evidence, never guess conventions. Use whenever a change or a conclusion is about to be built from belief instead of from the tree, even under time pressure."
 ---
 
 # Grounding before coding

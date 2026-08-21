@@ -1,6 +1,6 @@
 ---
 name: guarding-architecture
-description: Use when a change crosses module boundaries, adds a dependency direction, touches a critical path, or conflicts with a stated principle - and when writing or updating architecture principles themselves. Encodes structural invariants as named, enforced contracts: statement, rationale, guard. Use whenever "we'll just import it from there for now" appears, which is how boundaries die.
+description: "Use when a change crosses module boundaries, adds a dependency direction, touches a critical path, or conflicts with a stated principle - and when writing or updating architecture principles themselves. Encodes structural invariants as named, enforced contracts: statement, rationale, guard. Use whenever \"we'll just import it from there for now\" appears, which is how boundaries die."
 ---
 
 # Guarding architecture
