@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/riekelt/principal-engineer/compare/v1.0.1...v1.1.0) (2026-08-22)
+
+
+### Features
+
+* dependency judgment, and sharper boundaries where the rules meet ([4de0c0d](https://github.com/riekelt/principal-engineer/commit/4de0c0dbcfdba434076b9893f8aa4d6f2374ceee))
+
 ## [1.0.1](https://github.com/riekelt/principal-engineer/compare/v1.0.0...v1.0.1) (2026-08-21)
 
 
