@@ -3,13 +3,13 @@ name: principal-engineering
 description: Use when doing any non-trivial engineering work - implementing, debugging, refactoring, configuring, operating, or investigating why a system misbehaves - or any change where being wrong has a cost. Encodes the evidence-over-theory discipline, the hard safety rules, and the pre-change checkpoint. Use whenever code, data, or infrastructure is about to change or must be understood before it can, even if the task looks routine or is only "find out why". Foundation for the sibling skills.
 ---
 
-# Senior engineering
+# Principal engineering
 
 ## Overview
 
 The difference at this level is not knowing more patterns; it is refusing to act on what the system supposedly does when you can check what it actually does. Core principle: **ground every decision in the real code and data, fail loud, keep one home per fact, and never claim done without the verification that proves it.**
 
-Sibling skills carry the depth: `grounding-before-coding`, `handling-failures`, `keeping-one-source-of-truth`, `verifying-before-done`, `operating-safely`, `scoping-changes`, `testing-changes`, `writing-unit-tests`, `guarding-architecture`. Load the matching one on top of this.
+Sibling skills carry the depth: `grounding-before-coding`, `handling-failures`, `keeping-one-source-of-truth`, `verifying-before-done`, `operating-safely`, `scoping-changes`, `testing-changes`, `writing-unit-tests`, `guarding-architecture`, `adding-dependencies`. Load the matching one on top of this.
 
 ## When to invoke
 
@@ -23,7 +23,8 @@ Sibling skills carry the depth: `grounding-before-coding`, `handling-failures`, 
 | Deciding how big a fix should be, or scope is moving mid-task | `scoping-changes` |
 | Deciding what tests a change owes, or the test diff is empty | `testing-changes` |
 | Writing or fixing a unit test, or a test is flaky or unreadable | `writing-unit-tests` |
-| Crossing module boundaries, adding dependencies, or touching stated principles | `guarding-architecture` |
+| Crossing module boundaries or touching stated principles | `guarding-architecture` |
+| Adding, updating, vetting, or removing a package, library, or base image | `adding-dependencies` |
 
 Writing the documents around the work (specs, decisions, changelogs, runbooks, postmortems, issues) is the technical-writer plugin's job where installed; these skills govern the engineering itself and defer to those for the prose.
 
@@ -67,5 +68,5 @@ When something bites twice, it becomes a written rule with its provenance (what 
 - Acting on a document's claim about the system instead of the system. Doc status goes stale fast; the code and the history are the record.
 - Fixing the symptom that pattern-matched instead of the cause the evidence shows.
 - Treating "the tests are green" as "the change works". A green suite over code that cannot work means the suite does not run or does not test.
-- Leaving a duplicate you noticed because removing it was not the task. Absorbing it was part of the task. See `keeping-one-source-of-truth`.
+- Leaving a duplicate untouched in code you are changing. A duplicate in code you touch gets absorbed as part of the work; one you merely noticed elsewhere gets surfaced and tracked, not silently fixed and not silently left. See `keeping-one-source-of-truth`.
 - Growing a fix past its trigger because improvements were adjacent. See `scoping-changes`.

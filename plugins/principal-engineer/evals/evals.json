@@ -38,6 +38,15 @@
       "assertions": []
     },
     {
+      "id": 6,
+      "name": "three-packages-for-two-small-jobs",
+      "skills": ["principal-engineering", "adding-dependencies", "scoping-changes"],
+      "prompt": "Our node CLI needs two things: parse the YAML frontmatter block at the top of markdown files, and deep-merge a user config object over defaults. A teammate says 'just npm install gray-matter, front-matter (as backup), and lodash for the merge'. The repo's package.json has no stated dependency policy; js-yaml is present in node_modules as a transitive dependency of the release tooling. Decide what to do and make the change plan.",
+      "expected_output": "Walks the ladder instead of installing three packages: the deep merge is a few lines of own code (no lodash for one function); frontmatter parsing needs a YAML parser, and the transitive js-yaml is explicitly NOT treated as available (undeclared today, gone on a lockfile refresh) - either declared as a direct pinned dependency or a purpose-fit single parser chosen, never two packages where one does the job and never a 'backup' dependency. Asks for or establishes the project's dependency posture since none is declared, records the add as a decision with a removal condition, and pins it.",
+      "files": [],
+      "assertions": []
+    },
+    {
       "id": 5,
       "name": "boundary-erosion-for-now",
       "skills": ["principal-engineering", "guarding-architecture"],

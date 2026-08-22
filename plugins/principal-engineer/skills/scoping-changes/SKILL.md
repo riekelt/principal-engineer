@@ -13,14 +13,19 @@ Scope fails in both directions: gold-plating grows a fix past its trigger, and s
 
 ## Sizing to the trigger
 
+- **The trigger is the defect or need itself, not the ticket's sentence about it.** The same defect discovered on a second path is in scope (shipping "fixed" while it lives on elsewhere is a half-true report); an adjacent improvement discovered because the file was open is not. This one definition is what the whole sizing discipline hangs on.
 - The fix is as big as the thing that triggered it. No gold-plating, no fencing unreachable edges, no refactor riding along because the file was open.
 - Adjacent improvements you noticed are real and belong in the tracker, not in this diff. One trigger, one change, one reviewable story.
-- The test for a borderline addition: would this change ship on its own merits if the main fix did not exist? If not, it is decoration on someone else's diff.
+- The test for a borderline addition: would this change ship on its own merits if the main fix did not exist? If not, it is decoration on someone else's diff. If it would, it ships on its own: passing the test licenses a separate change, never a rider.
+- The owner can re-scope; the owner cannot merge scopes. "Squeeze it in" from whoever owns the work legitimately adds the second task, and it still ships as its own change; these rules govern how work is shaped, the owner decides what work exists.
+- Unrequested structure is scope creep wearing a design pattern: an interface with a single implementer, a factory that only ever builds one thing, configuration for a value nobody will change. Add the structure when the second case arrives, not when it is imagined.
+- A deliberate simplification that accepts a real limit carries that limit in a comment: what the ceiling is and what would justify raising it ("one shared queue; shard per tenant when a single consumer can no longer keep up"). The ceiling is a current constraint, so the comment obeys the current-behavior rule, and the next engineer inherits a decision instead of a mystery.
+- Choosing how to solve, not only how much: exhaust the codebase, the standard library, the platform, and the dependencies already installed before writing new code, and see `adding-dependencies` before reaching for a new package.
 
 ## Decompose, never silently descope
 
 - An approved task that turns out too big is decomposed into named parts with the cut line stated, never delivered as a quiet "pragmatic minimum" that looks complete.
-- What gets deferred becomes a tracked item with an owner (the tracker discipline lives in the technical-writer plugin's `writing-issues` where installed); deferred work that lives only in the author's memory was descoped, not deferred.
+- What gets deferred becomes a tracked item with an owner, or explicitly "owner pending triage" when none exists yet (the tracker discipline lives in the technical-writer plugin's `writing-issues` where installed); deferred work that lives only in the author's memory was descoped, not deferred.
 - The report says plainly which parts shipped and which did not. A partial delivery honestly labeled is a plan; a partial delivery labeled complete is a defect.
 
 ## Driving to completion

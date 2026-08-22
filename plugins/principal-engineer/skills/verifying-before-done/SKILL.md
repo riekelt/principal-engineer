@@ -9,7 +9,7 @@ description: "Use when about to say \"done\", \"fixed\", \"passing\", or \"shipp
 
 ## Overview
 
-Done means verified, and verified names what was checked. Careful work is not a check: the two defects that ship in "obviously fine" changes were both caught, in this corpus's history, by the verification that almost got skipped.
+Done means verified, and verified names what was checked. Careful work is not a check: the defects that ship in "obviously fine" changes are exactly the ones caught by the verification that almost got skipped, because "obviously fine" is the feeling that skips it.
 
 ## The discipline
 

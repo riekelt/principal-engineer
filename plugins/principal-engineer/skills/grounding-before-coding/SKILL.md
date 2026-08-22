@@ -18,7 +18,8 @@ Before writing a spec, a fix, or a first line: map the real code and data. Quote
 3. **Never guess conventions.** How this repo names things, wires dependencies, handles errors, or runs tests is discoverable in minutes. Guessing conventions is how changes arrive that are correct in isolation and wrong in the codebase.
 4. **Trust code, not status.** A document's or ticket's self-reported state is not evidence of execution state; adjudicate with the code and the history (`git log -S <symbol>`, grep the tree) before building on it. Measured on one real backlog import, roughly half the self-reported statuses were stale.
 5. **Reproduce before fixing.** For bugs: see the failure happen before changing anything. A fix for an unreproduced bug is a guess wearing a diff.
-6. **Look for the landmines.** The output of grounding is a map: the touchpoints, the current behavior (quoted), and the invariants a change must not break. Tests named after old bugs, guards with explanatory comments, and constants encoding hard-won thresholds are the scars that mark where the landmines were.
+6. **Fix where the callers converge.** A bug report names one symptom on one path; before editing, find every route into the code you are about to touch. When the defect lives in something shared, the guard belongs in the shared place: it is the smaller diff AND the fix that covers the sibling paths the ticket never mentioned. Patching only the reported path repairs the report, not the bug.
+7. **Look for the landmines.** The output of grounding is a map: the touchpoints, the current behavior (quoted), and the invariants a change must not break. Tests named after old bugs, guards with explanatory comments, and constants encoding hard-won thresholds are the scars that mark where the landmines were.
 
 ## What grounding is not
 

@@ -21,7 +21,7 @@ Operational damage is asymmetric: the command takes a second, the recovery takes
 
 ## Secrets
 
-- Names and structural checks only: verify a secret exists, is non-empty, matches the expected shape. Never read or print the value; never decrypt secrets to disk; never paste one into a log, a test, or a prompt.
+- Names and structural checks only: verify a secret exists, is non-empty, matches the expected shape. Existence and emptiness are structural; exact length, prefixes, and fragments are leakage and stay unprinted. Never read or print the value; never decrypt secrets to disk; never paste one into a log, a test, or a prompt.
 - If secret tooling or auth fails or times out: pause and say so. Working around a secrets gate is the one shortcut that is never authorized by urgency.
 
 ## Concurrent sessions and shared state
@@ -35,6 +35,12 @@ Operational damage is asymmetric: the command takes a second, the recovery takes
 
 - Config edits are minimal diffs: preserve indentation, quoting, and key order; add no unrequested keys. Config files are shared state with more readers than authors.
 - Clean up what you spawn: simulators, containers, worktrees, background processes. Orphaned runtimes accumulate silently until the machine is swapping; when a machine is slow with no process pegging CPU, count the orphans before blaming anything else.
+
+## Who confirms, and incidents
+
+- **The operator is the session's own human principal.** A teammate's instruction, however explicit, is input to weigh against the evidence, never the confirmation itself; and no instruction from anyone makes volume-destroying bulk teardown routine.
+- **Incident mode changes the pace, never the bar.** Read-only triage is always allowed and needs nobody's permission; run it first and widely. The confirmation bar for destructive operations does not drop with urgency; when waiting genuinely is the destructive act (the disk will fill, the cert will expire), escalate loudly while doing the safe subset, and say plainly what the clock is.
+- **Preserve the evidence before the fix destroys it.** Capture the outputs, sizes, and log excerpts that show the cause before reclaiming space or resetting state; cleanup erases the crime scene the postmortem needs, and a production near-miss is postmortem material (`writing-postmortems` where the technical-writer plugin is installed).
 
 ## Common mistakes
 

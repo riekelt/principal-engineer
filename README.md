@@ -2,7 +2,7 @@
 
 Engineering discipline as skills: the judgment layer for coding agents, distilled from conventions used across my own repositories. Evidence over theory, failures that cannot pass silently, one home per fact, verification as the definition of done, and fixes that never outgrow their trigger.
 
-One core skill holds the hard rules, the risk tiers, and the routing; nine discipline skills build on it.
+One core skill holds the hard rules, the risk tiers, and the routing; ten discipline skills build on it.
 
 | Skill | Use when |
 |---|---|
@@ -16,8 +16,10 @@ One core skill holds the hard rules, the risk tiers, and the routing; nine disci
 | [testing-changes](plugins/principal-engineer/skills/testing-changes/SKILL.md) | What tests a change owes: tests move with behavior, the bug-regression pattern, discriminating assertions. |
 | [writing-unit-tests](plugins/principal-engineer/skills/writing-unit-tests/SKILL.md) | The craft of the tests themselves: behavior not implementation, names as claims, determinism, mock policy. |
 | [guarding-architecture](plugins/principal-engineer/skills/guarding-architecture/SKILL.md) | Structural invariants as named, enforced contracts: statement, rationale, guard; violations mean redesign. |
+| [adding-dependencies](plugins/principal-engineer/skills/adding-dependencies/SKILL.md) | Exhaust what you have, vet what you take, pin what you took: the dependency ladder, posture declarations, pin-and-prove updates. |
 
 Pairs with the [technical-writer](https://github.com/riekelt/technical-writer) plugin, which governs the documents around the work (specs, decisions, changelogs, runbooks, postmortems, issues); these skills govern the engineering itself and defer to it for the prose.
+
 
 ## Install
 
@@ -53,6 +55,7 @@ plugins/principal-engineer/
     testing-changes/
     writing-unit-tests/
     guarding-architecture/
+    adding-dependencies/
 ```
 
 ## Releases
