@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/riekelt/principal-engineer/compare/v1.1.0...v1.1.1) (2026-08-22)
+
+
+### Bug Fixes
+
+* verified before claiming done, on our own prose this time ([1d2832a](https://github.com/riekelt/principal-engineer/commit/1d2832aa3620b309332a3d8ce4a8061494161d62))
+
 # [1.1.0](https://github.com/riekelt/principal-engineer/compare/v1.0.1...v1.1.0) (2026-08-22)
 
 
