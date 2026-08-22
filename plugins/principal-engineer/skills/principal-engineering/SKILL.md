@@ -7,7 +7,7 @@ description: Use when doing any non-trivial engineering work - implementing, deb
 
 ## Overview
 
-The difference at this level is not knowing more patterns; it is refusing to act on what the system supposedly does when you can check what it actually does. Core principle: **ground every decision in the real code and data, fail loud, keep one home per fact, and never claim done without the verification that proves it.**
+This level rests on checking what the system actually does rather than recalling a pattern for it. **Ground every decision in the real code and data, fail loud, keep one home per fact, and never claim done without the verification that proves it.**
 
 Sibling skills carry the depth: `grounding-before-coding`, `handling-failures`, `keeping-one-source-of-truth`, `verifying-before-done`, `operating-safely`, `scoping-changes`, `testing-changes`, `writing-unit-tests`, `guarding-architecture`, `adding-dependencies`. Load the matching one on top of this.
 
@@ -18,17 +18,17 @@ Sibling skills carry the depth: `grounding-before-coding`, `handling-failures`, 
 | Starting a change, a debug, or work in unfamiliar code | `grounding-before-coding` |
 | Writing or touching any error path, fallback, or default | `handling-failures` |
 | Adding data, config, state, or a second copy of anything | `keeping-one-source-of-truth` |
-| About to say "done", "fixed", or "passing" | `verifying-before-done` |
+| Claiming "done", "fixed", or "passing" | `verifying-before-done` |
 | Deleting, overwriting, restarting, or touching secrets or live systems | `operating-safely` |
-| Deciding how big a fix should be, or scope is moving mid-task | `scoping-changes` |
-| Deciding what tests a change owes, or the test diff is empty | `testing-changes` |
-| Writing or fixing a unit test, or a test is flaky or unreadable | `writing-unit-tests` |
+| Deciding how big a fix should be, or noticing scope move mid-task | `scoping-changes` |
+| Deciding what tests a change owes, or facing an empty test diff | `testing-changes` |
+| Writing or fixing a unit test, or taming a flaky or unreadable one | `writing-unit-tests` |
 | Crossing module boundaries or touching stated principles | `guarding-architecture` |
 | Adding, updating, vetting, or removing a package, library, or base image | `adding-dependencies` |
 
 Writing the documents around the work (specs, decisions, changelogs, runbooks, postmortems, issues) is the technical-writer plugin's job where installed; these skills govern the engineering itself and defer to those for the prose.
 
-## What this skill does not do
+## Scope limits
 
 - It is not a style guide: formatting, naming taste, and framework choice belong to the repository's own conventions, which win.
 - It does not replace project instructions: CLAUDE.md and repository rules outrank everything here.
@@ -48,16 +48,16 @@ Non-negotiable, in every repository:
 
 - **No silent error swallows.** Every catch and failure path logs and rethrows, returns a typed failure the caller must handle, or enters an explicitly documented degraded mode. A new silent swallow is an automatic review BLOCKER. See `handling-failures`.
 - **An applied migration is immutable history.** Schema corrections are new additive migrations, never edits to an applied one.
-- **Never claim verified without naming what was checked.** "Done" states the command and its result; tests that fail are reported with output; skipped steps are named. See `verifying-before-done`.
+- **Never claim verified without naming what was checked.** A "done" claim names the command and its result, quotes the output of every failing test, and names every skipped step. See `verifying-before-done`.
 - **Secret values are never read, printed, or decrypted to disk.** Names and structural checks only; an auth failure means pause, never bypass.
 - **Destructive operations need eyes first.** Look at the target before deleting or overwriting; ask before restarting or killing live services; prefer targeted operations over bulk ones.
 - **Evidence beats theory.** Profile, query, and read before concluding; a signal that pattern-matches a known failure may have a different cause, so check that the evidence supports the specific action, not the familiar one.
 
 ## Risk tiers set the rigor
 
-Not all changes deserve the same ceremony; the tier does not change the rules, it changes how much proof they demand. **What sits in the top tier is the project's to declare**: money paths in one system, the sales pipeline in another, stored user data, a medical record, a safety gate, an irreversible migration. The project's rules or CLAUDE.md name its critical paths; when they do not, ask what the system must never get wrong, and treat the answer as the declaration.
+Not all changes deserve the same rigor. The rules hold at every tier; the tier sets how much proof they demand. **What sits in the top tier is the project's to declare**: money paths in one system, the sales pipeline in another, stored user data, a medical record, a safety gate, an irreversible migration. The project's rules or CLAUDE.md name its top-tier paths; when they do not, ask what the system must never get wrong, and treat the answer as the declaration.
 
-Top-tier work gets maximum rigor: invariant tests, independent verification, and the full checkpoint taken literally. Ordinary paths get the standard discipline. Tooling and throwaway work still obey the hard rules (a silent swallow in a script still hides failures) but earn no gold-plating. State the tier when it is not obvious; the expensive mistake is running critical-path work at tooling rigor, and the wasteful one is the reverse.
+Top-tier work gets maximum rigor: invariant tests, independent verification, and the full checkpoint taken literally. Ordinary paths get standard rigor. Tooling and throwaway work still obey the hard rules (a silent swallow in a script still hides failures) but earn no gold-plating. State the tier when it is not obvious; the expensive mistake is running top-tier work at tooling rigor, and the wasteful one is the reverse.
 
 ## The rule lifecycle
 
