@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/riekelt/principal-engineer/compare/v1.1.1...v1.2.0) (2026-08-24)
+
+
+### Features
+
+* done is what the running system said, not what the suite did ([28f125e](https://github.com/riekelt/principal-engineer/commit/28f125e2e62a5bbadd181fb32f28f0ad3d55699f))
+
 ## [1.1.1](https://github.com/riekelt/principal-engineer/compare/v1.1.0...v1.1.1) (2026-08-22)
 
 
