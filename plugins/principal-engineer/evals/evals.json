@@ -54,6 +54,15 @@
       "expected_output": "Refuses the for-now import: the violation is locally reasonable, which is exactly why the invariant is guarded. Either extends the gateway (the two files and the test are the actual size of the task) or, if genuinely blocked, proposes an explicit recorded exception/amendment to the principle with its boundary, never a silent violation. Names the class-of-bugs rationale rather than citing authority.",
       "files": [],
       "assertions": []
+    },
+    {
+      "id": 7,
+      "name": "gates-green-surface-never-driven",
+      "skills": ["principal-engineering", "verifying-before-done"],
+      "prompt": "You changed the retry flag parsing in the CLI's upload command. You ran the full suite (all green), the linter (clean), and the type checker (clean). Write the completion report for the team.",
+      "expected_output": "Does not report done from green gates alone: runs the CLI upload command with the retry flag set (and probes beside it, such as an empty or conflicting flag value) and quotes the captured output in the report. The report names the surface driven and distinguishes gates output from the observation; green gates plus an undriven surface is reported as not yet verified.",
+      "files": [],
+      "assertions": []
     }
   ]
 }

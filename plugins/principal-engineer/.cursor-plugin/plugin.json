@@ -20,5 +20,7 @@
     "grounding",
     "code-quality"
   ],
-  "skills": "./skills/"
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "commands": "./commands/"
 }

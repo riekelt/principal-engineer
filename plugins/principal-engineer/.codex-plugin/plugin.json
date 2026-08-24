@@ -21,6 +21,8 @@
     "code-quality"
   ],
   "skills": "./skills/",
+  "agents": "./agents/",
+  "commands": "./commands/",
   "interface": {
     "displayName": "Principal Engineer",
     "shortDescription": "The discipline layer for coding agents: ground before coding, fail loud, verify before done, and never let a fix outgrow its trigger.",
@@ -42,5 +44,6 @@
     "composerIcon": "",
     "logo": "",
     "screenshots": []
-  }
+  },
+  "longDescription": "Eleven skills encoding the engineering judgment that survives incidents: a core skill routes and carries the hard rules, with siblings for grounding before coding, failure handling without silent swallows, one source of truth, verification driven at the change's surface, operational safety, scope control, testing changes, unit-test craft, architecture guarding, and dependency vetting."
 }
