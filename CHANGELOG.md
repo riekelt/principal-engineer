@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/riekelt/principal-engineer/compare/v1.2.2...v1.2.3) (2026-08-30)
+
+
+### Bug Fixes
+
+* quoted verification output gets redacted before it travels ([82f19a1](https://github.com/riekelt/principal-engineer/commit/82f19a154e15f35f5d7ad07e9da7ed37a6f4c3a3))
+
 ## [1.2.2](https://github.com/riekelt/principal-engineer/compare/v1.2.1...v1.2.2) (2026-08-30)
 
 
