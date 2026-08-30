@@ -1,7 +1,7 @@
 {
   "name": "principal-engineer",
   "description": "Engineering discipline as skills: evidence over theory, no silent error swallows, one source of truth, verification as the definition of done, operational safety, and fixes sized to their trigger",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": {
     "name": "riekelt",
     "email": "r@kapitein.nl",

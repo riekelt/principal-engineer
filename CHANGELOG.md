@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/riekelt/principal-engineer/compare/v1.2.1...v1.2.2) (2026-08-30)
+
+
+### Bug Fixes
+
+* codex manifest carries only fields codex supports ([28b854a](https://github.com/riekelt/principal-engineer/commit/28b854a8e9dbf98c79c8cfffa16f7c77202aa72c))
+
 ## [1.2.1](https://github.com/riekelt/principal-engineer/compare/v1.2.0...v1.2.1) (2026-08-30)
 
 
