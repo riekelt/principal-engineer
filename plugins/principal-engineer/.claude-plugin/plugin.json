@@ -21,6 +21,6 @@
     "code-quality"
   ],
   "skills": "./skills/",
-  "agents": "./agents/",
+  "agents": ["./agents/change-verifier.md"],
   "commands": "./commands/"
 }
