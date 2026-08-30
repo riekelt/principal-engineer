@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/riekelt/principal-engineer/compare/v1.2.0...v1.2.1) (2026-08-30)
+
+
+### Bug Fixes
+
+* agents manifest field must be an array of file paths ([cb33dca](https://github.com/riekelt/principal-engineer/commit/cb33dca649cb6a6120e407da97879649b666eb9e))
+
 # [1.2.0](https://github.com/riekelt/principal-engineer/compare/v1.1.1...v1.2.0) (2026-08-24)
 
 
