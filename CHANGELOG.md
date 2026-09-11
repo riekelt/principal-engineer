@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/riekelt/principal-engineer/compare/v1.2.3...v1.2.4) (2026-09-11)
+
+
+### Bug Fixes
+
+* every rule survives, the rationale around it gets shorter ([964148a](https://github.com/riekelt/principal-engineer/commit/964148af3da03bb36389922984d098b12238a965))
+
 ## [1.2.3](https://github.com/riekelt/principal-engineer/compare/v1.2.2...v1.2.3) (2026-08-30)
 
 

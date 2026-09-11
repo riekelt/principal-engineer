@@ -1,6 +1,6 @@
 {
   "name": "principal-engineer",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "private": true,
   "devDependencies": {
     "semantic-release": "^24.0.0",
